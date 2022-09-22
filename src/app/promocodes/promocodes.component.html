@@ -1,0 +1,60 @@
+<app-navigation
+  [matIconVisible]="matIconVisible"
+  [matIcon]="matIcon"
+  [matTextVisible]="matTextVisible"
+  [matText]="matText"
+></app-navigation>
+
+<div class="container">
+  <mat-grid-list cols="1" rowHeight="100px">
+    <mat-grid-tile>
+      <div class="mat-display-2 title">
+        {{title}}
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="divider">
+    <mat-divider></mat-divider>
+  </div>
+  <div class="mat-title">
+    Search Promotion
+  </div>
+  <form id="filtersForm" [formGroup]="formData" autocomplete="on">
+    <div class="inline-form">
+      <input (keydown)="search()" type="text" formControlName="searchTerm" placeholder="Search Term">
+      <select (change)="refreshPromoList()" formControlName="status">
+        <option value="">Select Status</option>
+        <option value="IN_ACTIVE">InActive</option>
+        <option value="ACTIVE">Active</option>
+        <option value="PENDING_APPROVAL">Pending Approval</option>
+      </select>
+      <button (click)="resetForm()" mat-stroked-button class="btnClass" id="reset-btn">Reset filter</button>
+      <button (click)="createNewPromocode()" mat-raised-button color="warn" class="btnClass" id="add-promotion-btn">
+        <mat-icon>add</mat-icon>
+        Create Promotion
+      </button>
+    </div>
+    <div class="flex" id="pagecount-selector">
+      <p>Items Per Page</p>
+      <select (change)="refreshPromoList()" id="pages-selection" formControlName="limit">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+      <p>Showing {{startIdx}}-{{endIdx}} of {{totalIdx}}</p>
+    </div>
+  </form>
+  <app-table (editPromocodeEvent)="editPromocode($event)" (deletePromocodeEvent)="deletePromocode($event)" [displayedColumns]="displayedColumns" [dataSource]="dataSource">
+  </app-table>
+  <div class="custom-paginator">
+    <button mat-icon-button [disabled]="isPrevDisabled" (click)="previous()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button mat-icon-button [disabled]="isNextDisabled" (click)="next()">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <!-- <mat-icon [disabled]="isPrevDisabled" id="prev" (click)="previous()">keyboard_arrow_left</mat-icon>
+    <mat-icon id="next" (click)="next()">keyboard_arrow_right</mat-icon> -->
+  </div>
+</div>

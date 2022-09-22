@@ -1,0 +1,48 @@
+<h1 mat-dialog-title class="align-center">{{title}}</h1>
+<div mat-dialog-content>
+  <form class="align-center" [formGroup]="dialogData" (ngSubmit)="addOrEditPromocode()">
+    <mat-form-field appearance="outline">
+      <mat-label>Promocode Name</mat-label>
+      <input type="text" matInput placeholder="Promocode name" formControlName="name">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Add Promocode Name</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Discount (in USD)</mat-label>
+      <input type="number" matInput placeholder="Discount" formControlName="discount">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Add Discount Amount</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="IN_ACTIVE">Inactive</mat-option>
+        <mat-option value="ACTIVE">Active</mat-option>
+        <mat-option value="PENDING_APPROVAL">Pending Approval</mat-option>
+      </mat-select>
+      <mat-hint align="end">Select Status of Promocode</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option value="PARTY_SHARE">Party Share</mat-option>
+        <mat-option value="GIFT_CARD">Gift Card</mat-option>
+      </mat-select>
+      <mat-hint align="end">Select Type of Promocode</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input formGroupName="range" [rangePicker]="picker">
+        <input matStartDate formControlName="startDate" placeholder="Start date">
+        <input matEndDate formControlName="endDate" placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    <button id="add-promo-btn" type="submit" mat-flat-button color="primary">
+      <mat-icon>{{icon}}</mat-icon>
+      {{btnText}}
+    </button>
+  </form>
+</div>

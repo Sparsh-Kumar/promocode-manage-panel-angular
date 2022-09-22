@@ -1,0 +1,85 @@
+.custom-paginator {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.custom-paginator mat-icon-button mat-icon {
+  font-size:30px;
+  cursor: pointer;
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+#pagecount-selector {
+  margin-bottom: 1%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex p {
+  margin-top: 1%;
+}
+
+#pages-selection {
+  width: 60px;
+  padding: 0px;
+  margin-left: 1.5%;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #505050;
+}
+
+#add-promotion-btn {
+  float: right;
+  border: none;
+  height: 43px;
+}
+
+.btnClass {
+  margin-top: 8px;
+  padding: 2px 18px 2px;
+  vertical-align: top;
+  border: 3px solid #000;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=text], select {
+  width: 20%;
+  padding: 11px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 3px solid #000;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  vertical-align: top;
+  margin-right: 2%;
+}
+
+.divider {
+  margin-bottom: 1%;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.mat-divider {
+  border-top-color: black;
+  border-top-width: 5px;
+  margin-top: -15px;
+}
+
+.mat-title {
+  margin-bottom: 1%;
+}
+
+.title {
+  margin-top: 3.5%;
+}
